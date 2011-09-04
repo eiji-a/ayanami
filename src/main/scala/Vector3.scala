@@ -7,7 +7,13 @@ case class Vector3(x: Double, y: Double, z: Double) {
   def +(v: Vector3) = Vector3(x + v.x, y + v.y, z + v.z)
   def -(v: Vector3) = Vector3(x - v.x, y - v.y, z - v.z)
   def *(s: Double)  = Vector3(x * s, y * s, z * s)
-  def /(s: Double)  = Vector3(x / s, y / s, z / s)
+  def /(s: Double)  = {
+    s match {
+      case 0.0 => throw new IllegalArgumentException()
+      case _   => this * (1.0 / s)
+    }
+  }
+
   //implicit def **(s: Double) = new Vector3(x * s, y * s, z * s)
   def dot(v: Vector3) = x * v.x + y * v.y + z * v.z
   def *(v: Vector3) = this.dot(v)
@@ -17,7 +23,13 @@ case class Vector3(x: Double, y: Double, z: Double) {
   def square = this * this
   def length = sqrt(this.square)
   def norm = this.length
-  def normal = this / this.length
+  def normal = {
+    val len = this.length
+    len match {
+      case 0.0 => throw new RuntimeException()
+      case _   => this / len
+    }
+  }
 
 }
 
