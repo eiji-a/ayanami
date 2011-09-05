@@ -19,6 +19,7 @@ case class Vector3(x: Double, y: Double, z: Double) {
   def norm = this.length
   def normal = this / this.length
 
+
 }
 
 object Vector3 {
