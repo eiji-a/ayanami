@@ -25,7 +25,7 @@ class Vector3Suite extends FunSuite {
       val v61 = v3 / 0.0
       fail("vector can not be devided by zero")
     } catch {
-      case e: IllegalArgumentException => assert(true)
+      case e: ArithmeticException => assert(true)
     }
     val s0 = v1 dot v2
     assert(s0 === 46.0)
@@ -49,7 +49,7 @@ class Vector3Suite extends FunSuite {
       val v11 = Vector3(0, 0, 0).normal
       fail("zero vector can not be normalize")
     } catch {
-      case e: RuntimeException => assert(true)
+      case e: ArithmeticException => assert(true)
     }
     //assert(v11.toString === "[NaN,NaN,NaN]")
     val s4 = (v2 - v1).length

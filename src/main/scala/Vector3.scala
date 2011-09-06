@@ -9,7 +9,7 @@ case class Vector3(x: Double, y: Double, z: Double) {
   def *(s: Double)  = Vector3(x * s, y * s, z * s)
   def /(s: Double)  = {
     s match {
-      case 0.0 => throw new IllegalArgumentException()
+      case 0.0 => throw new ArithmeticException("/ by zero")
       case _   => this * (1.0 / s)
     }
   }
@@ -26,7 +26,7 @@ case class Vector3(x: Double, y: Double, z: Double) {
   def normal = {
     val len = this.length
     len match {
-      case 0.0 => throw new RuntimeException()
+      case 0.0 => throw new ArithmeticException("length is zero")
       case _   => this / len
     }
   }
