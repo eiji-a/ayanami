@@ -17,10 +17,14 @@ case class Vector3(x: Double, y: Double, z: Double) {
   //implicit def **(s: Double) = new Vector3(x * s, y * s, z * s)
   def dot(v: Vector3) = x * v.x + y * v.y + z * v.z
   def *(v: Vector3) = this.dot(v)
-  def cross(v: Vector3) = Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x)
+  def cross(v: Vector3) = Vector3(
+    y * v.z - z * v.y,
+    z * v.x - x * v.z,
+    x * v.y - y * v.x)
   def X(v: Vector3) = this.cross(v)
   def unary_- = Vector3(-x, -y, -z)
   def square = this * this
+  def isZero = this.equals(Vector3.O)
   def length = sqrt(this.square)
   def norm = this.length
   def normal = {
