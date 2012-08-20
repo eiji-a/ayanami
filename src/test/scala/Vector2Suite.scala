@@ -9,7 +9,7 @@ class Vector2Suite extends FunSuite {
     assert(v1.toString === "[1.0,2.0]")
   }
 
-  test("3d vector calculation") {
+  test("2d vector calculation") {
     val v1 = Vector2(1, 2)
     val v2 = Vector2(5, 7)
     val v3 = v1 + v2
@@ -35,25 +35,25 @@ class Vector2Suite extends FunSuite {
     val v9 = v1 + v2 * 2
     assert(v9 === Vector2(11.0,16.0))
     val s2 = v1.length
-    assert(s2 === 3.7416573867739413)
+    assert(s2 === 2.23606797749979)
     val s3 = v1.norm
-    assert(s3 === 3.7416573867739413)
+    assert(s3 === 2.23606797749979)
     val v10 = v1.normal
-    assert(v10 === Vector2(0.2672612419124244,0.5345224838248488))
+    assert(v10 === Vector2(0.4472135954999579, 0.8944271909999159))
     try {
-      val v11 = Vector2(0, 0, 0).normal
+      val v11 = Vector2(0, 0).normal
       fail("zero vector can not be normalize")
     } catch {
       case e: ArithmeticException => assert(true)
     }
-    //assert(v11.toString === "[NaN,NaN,NaN]")
+    //assert(v11.toString === "[NaN,NaN]")
     val s4 = (v2 - v1).length
-    assert(s4 === 8.774964387392123)
+    assert(s4 === 6.4031242374328485)
     val v16 = Vector2(1, 2)
     assert(v1 === v16)
   }
 
-  test("3d vector constant") {
+  test("2d vector constant") {
     val v12 = Vector2.O
     assert(v12 === Vector2(0.0,0.0))
     val v13 = Vector2.EX
