@@ -56,6 +56,12 @@ class Vector3Suite extends FunSuite {
     assert(s4 === 8.774964387392123)
     val v16 = Vector3(1, 2, 3)
     assert(v1 === v16)
+    // Matrix4
+    val m1 = Matrix4(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0,
+                     10.0, 11.0, 12.0, 1.0)
+    val v17 = v1 * m1
+    assert(v17 === Vector3(40.0, 47.0, 54.0))
+
   }
 
   test("3d vector constant") {
