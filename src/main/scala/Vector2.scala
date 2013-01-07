@@ -2,8 +2,8 @@ import Math.{sqrt}
 
 case class Vector2(x: Double, y: Double) {
 
-  override def toString = "[" + x + "," + y + "]"
- 
+  //operator overload
+  //
   def +(v: Vector2) = Vector2(x + v.x, y + v.y)
   def -(v: Vector2) = Vector2(x - v.x, y - v.y)
   def *(s: Double)  = Vector2(x * s, y * s)
@@ -18,6 +18,10 @@ case class Vector2(x: Double, y: Double) {
   def dot(v: Vector2) = x * v.x + y * v.y
   def *(v: Vector2) = this.dot(v)
   def unary_- = Vector2(-x, -y)
+
+  //functions
+  //
+  override def toString = "[" + x + "," + y + "]"
   def square = this * this
   def isZero = this.equals(Vector2.O)
   def length = sqrt(this.square)

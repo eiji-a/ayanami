@@ -1,4 +1,8 @@
 
+// PLAIN: n . p + d = 0
+//        a * x + b * y + c * z + d = 0
+//   where n is normal vector (a,b,c)
+//         p is point on the plain (x,y,z)
 
 case class Plain(nc: Vector3, dc: Double) {
   val d: Double = dc / nc.length

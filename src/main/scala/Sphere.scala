@@ -1,6 +1,11 @@
 
 import Math.{sqrt}
 
+// SPHERE: |c - p| = r^2
+//  where c is center of sphere (cx,cy,cz)
+//        p is point on the sphere (x,y,z)
+//        r is radius of sphere
+
 case class Sphere(c: Vector3, r: Double) {
 
   def side(p: Vector3) = (p - c).length - r
